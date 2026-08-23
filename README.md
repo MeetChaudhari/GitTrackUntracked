@@ -55,59 +55,110 @@ The company/client repository is not changed. Its only `gitu` state is held insi
 | Branch-scoped vault files | Supported, experimental | Enable per checkout with `gitu branch enable`. |
 | Branch rename migration | Supported, manual | Run `gitu branch rename --from OLD --to NEW` after a Git rename. |
 | Project/repository rename migration | Supported, manual | Run `gitu project rename --to NEW-ID`; see the rename guide. |
-| VS Code extension | Preview scaffold | Commands are present; marketplace release is not ready. |
-| npm CLI wrapper / JavaScript SDK | Preview scaffold | Not published until platform binaries and release checks exist. |
+| VS Code extension | Preview | Command-palette integration; availability depends on Marketplace verification. |
+| npm CLI wrapper / JavaScript SDK | Experimental prerelease | Install the CLI with the `experimental` npm tag. |
 | Conflict resolution / concurrent device edits | Not yet supported | Pull and resolve vault Git conflicts manually before retrying. |
 | Encryption, access management, secret storage | Not supported | Use a secret manager. |
 | Automatic Git hooks / background sync | Not supported | Deliberate manual sync keeps behavior visible. |
 
-## Install the experimental CLI
+## Install
 
-Requires Go 1.26+ to build from source:
+The simplest installation is the experimental npm package (Node.js 18+):
+
+```sh
+npm install --global gittrackuntracked@experimental
+gitu --help
+```
+
+To build the CLI from source instead, install Go 1.26+ and run:
 
 ```sh
 go install github.com/MeetChaudhari/GitTrackUntracked/cmd/gitu@latest
+gitu --help
 ```
 
-From this checkout:
+From a clone of this repository, use `go build -o bin/gitu ./cmd/gitu`.
 
-```sh
-go build -o bin/gitu ./cmd/gitu
-```
+## First-time setup: protect one local document
 
-## Quick start
+This is the complete workflow a new user can follow. Try it first with a
+non-sensitive note in a test project.
 
-First, create an empty **private** repository yourself. Then, once per machine:
+### 1. Create one personal private vault
+
+Create an empty **private** Git repository that you personally control. For
+example, create `my-local-work-vault` on GitHub. Do **not** use a client,
+company, or production repository for this vault.
+
+Connect the machine to that vault once:
 
 ```sh
 gitu vault init --remote git@github.com:you/my-local-work-vault.git
 ```
 
-Inside a normal Git working tree:
+This clones the vault to your platform's local configuration directory
+(`~/Library/Application Support/gitu/vault` on macOS; normally
+`~/.config/gitu/vault` on Linux). Set `GITU_VAULT` before running `gitu` if you
+prefer a different local location.
+
+### 2. Register a deliberately local file in a project
+
+Open a normal Git checkout and create the document you want to keep private to
+your own vault—for example `docs/local-decisions.md`. It must be untracked by
+the host repository.
 
 ```sh
+cd path/to/your-project
 gitu init
-gitu add docs/local-decisions.md personal-specs/
+gitu add docs/local-decisions.md
 gitu status
-gitu sync -m "Capture current decisions"
+gitu sync -m "Save local decisions"
 ```
 
-`gitu init` derives a stable identity from the host repository's `origin` URL. For a project without an origin, choose an identity that you will use again on other machines:
+`gitu init` identifies a repository from its `origin` URL. If the project has
+no `origin`, choose a stable ID and use exactly the same ID on another machine:
 
 ```sh
 gitu init --project client-site
 ```
 
-## Restore on another machine
+If you want normal Git to hide the local document from `git status`, add its
+path to `.git/info/exclude`. That file is local to your checkout, unlike the
+shared `.gitignore`, and `gitu` does not modify either file.
+
+`gitu add` can also register a directory such as `personal-specs/`. It rejects
+files already tracked by the host repository and blocks likely secret paths by
+default. Do not use it for credentials, `.env` files, keys, or certificates.
+
+### 3. Use the same vault with another project
+
+You do not make a new private vault per project. In the second Git checkout,
+run the same project setup and sync:
+
+```sh
+cd path/to/another-project
+gitu init
+gitu add docs/working-notes.md
+gitu sync -m "Save notes for another project"
+```
+
+Both projects are stored independently inside the one vault.
+
+### 4. Restore after changing machines
+
+Install `gitu` on the new machine, connect it to the same vault, and then open
+the same host project checkout:
 
 ```sh
 gitu vault init --remote git@github.com:you/my-local-work-vault.git
-cd client-project
+cd path/to/your-project
 gitu init
 gitu restore
 ```
 
-`restore` does not overwrite an existing destination unless you supply `--force`. Run `gitu vault pull` first if another machine could have pushed newer changes.
+When another machine may have pushed newer changes, run `gitu vault pull`
+before `restore` or `sync`. `restore` never overwrites an existing destination
+unless you explicitly add `--force`.
 
 ## Branches and renamed projects
 
