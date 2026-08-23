@@ -1,9 +1,7 @@
 # `@gittrackuntracked/cli` (preview)
 
-This package is the planned npm distribution wrapper for the Go `gitu` binary.
-It resolves a platform-specific optional package once those signed binaries are
-released. Until then it is source-only and intentionally not publishable as a
-working end-user installer.
+This package downloads the matching GitTrackUntracked binary from the matching
+GitHub prerelease and verifies it against the release checksum manifest.
 
 For local development, point it at a built native executable:
 
@@ -11,5 +9,4 @@ For local development, point it at a built native executable:
 GITU_BINARY="$PWD/bin/gitu" node packages/cli-wrapper/bin/gitu.cjs --help
 ```
 
-Do not claim `npx @gittrackuntracked/cli` support before the release checklist is
-complete.
+Supported targets are macOS and Linux on x64/arm64, plus Windows on x64/arm64.

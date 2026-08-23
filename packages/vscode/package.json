@@ -2,13 +2,18 @@
   "name": "gittrackuntracked-vscode",
   "displayName": "GitTrackUntracked (Preview)",
   "description": "Experimental VS Code controls for the gitu private vault CLI.",
-  "version": "0.1.0-experimental.0",
-  "publisher": "REPLACE_BEFORE_PUBLISHING",
+  "version": "0.1.0-experimental.1",
+  "publisher": "MeetChaudhari",
   "license": "MIT",
   "engines": {
     "vscode": "^1.90.0"
   },
   "categories": ["SCM Providers", "Other"],
+  "keywords": ["git", "untracked", "backup", "sync", "vault", "notes"],
+  "preview": true,
+  "repository": {"type": "git", "url": "https://github.com/MeetChaudhari/GitTrackUntracked.git"},
+  "bugs": {"url": "https://github.com/MeetChaudhari/GitTrackUntracked/issues"},
+  "homepage": "https://github.com/MeetChaudhari/GitTrackUntracked#readme",
   "main": "./dist/extension.js",
   "activationEvents": [
     "onCommand:gittrackuntracked.initializeProject",

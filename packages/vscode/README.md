@@ -1,7 +1,7 @@
 # GitTrackUntracked VS Code extension (preview)
 
-This is an unpublished, experimental extension source package. It exposes six
-commands through the Command Palette:
+This experimental preview extension exposes six commands through the Command
+Palette:
 
 - Initialize Personal Vault
 - Initialize This Project
@@ -11,8 +11,9 @@ commands through the Command Palette:
 - Restore
 
 It calls the installed native `gitu` binary and shows command output in the
-**GitTrackUntracked** output channel. It never reads file contents itself. Set
-`gittrackuntracked.binaryPath` if `gitu` is not on `PATH`.
+**GitTrackUntracked** output channel. Install `@gittrackuntracked/cli` or build
+the Go CLI first, then set `gittrackuntracked.binaryPath` if `gitu` is not on
+`PATH`.
 
 The extension deliberately has no telemetry and no automatic/background sync.
-Do not publish it before following the release checklist.
+It is not a secret manager and should not be used in production.

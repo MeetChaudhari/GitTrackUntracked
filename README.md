@@ -141,10 +141,14 @@ Read [docs/EXPERIMENTAL.md](docs/EXPERIMENTAL.md) before adopting the tool.
 
 ## Ecosystem packages
 
-This repository includes preview sources for a JavaScript CLI wrapper and a VS Code extension. They are intentionally not published or marketplace-listed yet. Their release readiness is tracked privately by the maintainers.
+This repository includes experimental distribution packages. They remain
+prerelease software and are not suitable for production use.
 
-- [`packages/cli-wrapper`](packages/cli-wrapper) — future npm wrapper for the native CLI.
-- [`packages/vscode`](packages/vscode) — future VS Code commands for init, add-active-file, status, sync, and restore.
+- [`@gittrackuntracked/cli`](https://www.npmjs.com/package/@gittrackuntracked/cli) — npm-installed native CLI.
+- [`@gittrackuntracked/sdk`](https://www.npmjs.com/package/@gittrackuntracked/sdk) — JavaScript adapter around the CLI.
+- [`MeetChaudhari.gittrackuntracked-vscode`](https://marketplace.visualstudio.com/items?itemName=MeetChaudhari.gittrackuntracked-vscode) — VS Code command-palette integration.
+
+Install the npm CLI with `npm install --global @gittrackuntracked/cli@experimental`.
 
 ## Contributing, support, and security
 

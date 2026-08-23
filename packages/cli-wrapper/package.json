@@ -1,6 +1,6 @@
 {
   "name": "@gittrackuntracked/cli",
-  "version": "0.1.0-experimental.0",
+  "version": "0.1.0-experimental.1",
   "description": "Experimental npm launcher for the GitTrackUntracked native CLI",
   "license": "MIT",
   "bin": {
@@ -8,6 +8,7 @@
   },
   "files": [
     "bin",
+    "scripts",
     "README.md"
   ],
   "engines": {
@@ -15,5 +16,16 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MeetChaudhari/GitTrackUntracked.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MeetChaudhari/GitTrackUntracked/issues"
+  },
+  "homepage": "https://github.com/MeetChaudhari/GitTrackUntracked#readme",
+  "scripts": {
+    "postinstall": "node scripts/install-native.cjs"
   }
 }

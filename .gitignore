@@ -1,5 +1,8 @@
 bin/
+!packages/cli-wrapper/bin/
+!packages/cli-wrapper/bin/gitu.cjs
 coverage.out
 node_modules/
 packages/*/dist/
 *.vsix
+dist/
