@@ -1,5 +1,23 @@
 # GitTrackUntracked (`gitu`)
 
+## Why this exists
+
+Have you ever made a useful local file for a project—perhaps
+`docs/working-notes.md`, a draft client specification, a decision log, or a
+scratch checklist—and deliberately kept it out of the main repository? It is
+often the right choice: the file is useful to you, but it does not belong in a
+client repository, a company repository, or production history.
+
+Then you change laptops, set up a fresh checkout, work from another machine, or
+switch to a branch where the same local context would help—and that file is
+gone. You can copy it manually, but that turns into a private, error-prone
+second workflow with no history.
+
+GitTrackUntracked gives those *explicitly selected* local files a separate Git
+history in one personal vault. Your normal repository remains exactly as it is;
+your notes remain portable, versioned, and available only through the private
+remote you choose.
+
 > **EXPERIMENTAL — DO NOT USE IN PRODUCTION.**
 >
 > `gitu` is pre-1.0 software being prepared for an initial public release. It can create and push real Git history. Keep independent backups, use a test vault first, and do not rely on it for critical or regulated data.
