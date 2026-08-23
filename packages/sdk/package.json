@@ -1,6 +1,6 @@
 {
-  "name": "@meetchaudhari/gittrackuntracked-sdk",
-  "version": "0.1.0-experimental.2",
+  "name": "gittrackuntracked-sdk",
+  "version": "0.1.0-experimental.3",
   "description": "Experimental JavaScript API around the GitTrackUntracked CLI",
   "license": "MIT",
   "type": "module",

@@ -1,4 +1,4 @@
-# `@meetchaudhari/gittrackuntracked` (preview)
+# `gittrackuntracked` (preview)
 
 This package downloads the matching GitTrackUntracked binary from the matching
 GitHub prerelease and verifies it against the release checksum manifest.

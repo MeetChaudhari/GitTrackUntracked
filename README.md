@@ -144,11 +144,11 @@ Read [docs/EXPERIMENTAL.md](docs/EXPERIMENTAL.md) before adopting the tool.
 This repository includes experimental distribution packages. They remain
 prerelease software and are not suitable for production use.
 
-- [`@meetchaudhari/gittrackuntracked`](https://www.npmjs.com/package/@meetchaudhari/gittrackuntracked) — npm-installed native CLI.
-- [`@meetchaudhari/gittrackuntracked-sdk`](https://www.npmjs.com/package/@meetchaudhari/gittrackuntracked-sdk) — JavaScript adapter around the CLI.
+- [`gittrackuntracked`](https://www.npmjs.com/package/gittrackuntracked) — npm-installed native CLI.
+- [`gittrackuntracked-sdk`](https://www.npmjs.com/package/gittrackuntracked-sdk) — JavaScript adapter around the CLI.
 - [`MeetChaudhari.gittrackuntracked-vscode`](https://marketplace.visualstudio.com/items?itemName=MeetChaudhari.gittrackuntracked-vscode) — VS Code command-palette integration.
 
-Install the npm CLI with `npm install --global @meetchaudhari/gittrackuntracked@experimental`.
+Install the npm CLI with `npm install --global gittrackuntracked@experimental`.
 
 ## Contributing, support, and security
 

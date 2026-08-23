@@ -1,6 +1,6 @@
 {
-  "name": "@meetchaudhari/gittrackuntracked",
-  "version": "0.1.0-experimental.2",
+  "name": "gittrackuntracked",
+  "version": "0.1.0-experimental.3",
   "description": "Experimental npm launcher for the GitTrackUntracked native CLI",
   "license": "MIT",
   "bin": {
