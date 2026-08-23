@@ -2,7 +2,7 @@
   "name": "gittrackuntracked-vscode",
   "displayName": "GitTrackUntracked (Preview)",
   "description": "Experimental VS Code controls for the gitu private vault CLI.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "MeetChaudhari",
   "license": "MIT",
   "engines": {
@@ -16,21 +16,60 @@
   "homepage": "https://github.com/MeetChaudhari/GitTrackUntracked#readme",
   "main": "./dist/extension.js",
   "activationEvents": [
+    "onView:gittrackuntracked.sidebar",
     "onCommand:gittrackuntracked.initializeProject",
     "onCommand:gittrackuntracked.initializeVault",
     "onCommand:gittrackuntracked.addActiveFile",
+    "onCommand:gittrackuntracked.addFiles",
     "onCommand:gittrackuntracked.status",
     "onCommand:gittrackuntracked.sync",
-    "onCommand:gittrackuntracked.restore"
+    "onCommand:gittrackuntracked.restore",
+    "onCommand:gittrackuntracked.refresh"
   ],
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "gittrackuntracked",
+          "title": "GitTrackUntracked",
+          "icon": "assets/gitu.svg"
+        }
+      ]
+    },
+    "views": {
+      "gittrackuntracked": [
+        {
+          "id": "gittrackuntracked.sidebar",
+          "name": "Private Local Files",
+          "when": "workspaceFolderCount != 0"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "gittrackuntracked.refresh",
+          "when": "view == gittrackuntracked.sidebar",
+          "group": "navigation"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "gittrackuntracked.addActiveFile",
+          "when": "resourceScheme == file",
+          "group": "navigation@100"
+        }
+      ]
+    },
     "commands": [
       {"command": "gittrackuntracked.initializeVault", "title": "GitTrackUntracked: Initialize Personal Vault"},
       {"command": "gittrackuntracked.initializeProject", "title": "GitTrackUntracked: Initialize This Project"},
       {"command": "gittrackuntracked.addActiveFile", "title": "GitTrackUntracked: Add Active File"},
+      {"command": "gittrackuntracked.addFiles", "title": "GitTrackUntracked: Add Files or Folders"},
       {"command": "gittrackuntracked.status", "title": "GitTrackUntracked: Status"},
       {"command": "gittrackuntracked.sync", "title": "GitTrackUntracked: Sync"},
-      {"command": "gittrackuntracked.restore", "title": "GitTrackUntracked: Restore"}
+      {"command": "gittrackuntracked.restore", "title": "GitTrackUntracked: Restore"},
+      {"command": "gittrackuntracked.refresh", "title": "GitTrackUntracked: Refresh"}
     ],
     "configuration": {
       "title": "GitTrackUntracked",
@@ -45,7 +84,7 @@
   },
   "scripts": {
     "compile": "tsc -p ./",
-    "package": "npm run compile && npx @vscode/vsce package"
+    "package": "npm run compile && npx @vscode/vsce package --no-dependencies"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

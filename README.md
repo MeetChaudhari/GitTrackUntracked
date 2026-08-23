@@ -215,9 +215,17 @@ prerelease software and are not suitable for production use.
 
 - [`gittrackuntracked`](https://www.npmjs.com/package/gittrackuntracked) — npm-installed native CLI.
 - [`gittrackuntracked-sdk`](https://www.npmjs.com/package/gittrackuntracked-sdk) — JavaScript adapter around the CLI.
-- [`MeetChaudhari.gittrackuntracked-vscode`](https://marketplace.visualstudio.com/items?itemName=MeetChaudhari.gittrackuntracked-vscode) — VS Code command-palette integration.
+- [`MeetChaudhari.gittrackuntracked-vscode`](https://marketplace.visualstudio.com/items?itemName=MeetChaudhari.gittrackuntracked-vscode) — VS Code Activity Bar dashboard and command-palette integration.
 
 Install the npm CLI with `npm install --global gittrackuntracked@experimental`.
+
+### VS Code dashboard
+
+After installing the extension and opening a project folder, select the
+**GitTrackUntracked** icon in the Activity Bar. The **Private Local Files**
+view shows the vault/project state, registered paths, and actions to initialize,
+add, sync, restore, and refresh. It calls the same local `gitu` CLI; configure
+`gittrackuntracked.binaryPath` in VS Code Settings if `gitu` is not on `PATH`.
 
 ## Contributing, support, and security
 

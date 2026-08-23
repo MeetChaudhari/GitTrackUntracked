@@ -2,6 +2,11 @@
 
 All notable changes will be recorded here.
 
+## 0.1.1 — unreleased
+
+- Added an experimental VS Code Activity Bar dashboard for vault setup,
+  registered paths, status, sync, restore, and manual refresh.
+
 ## 0.1.0-experimental — unreleased
 
 - Initial Go CLI with one private vault for many projects.
