@@ -1,0 +1,19 @@
+{
+  "name": "@gittrackuntracked/cli",
+  "version": "0.1.0-experimental.0",
+  "description": "Experimental npm launcher for the GitTrackUntracked native CLI",
+  "license": "MIT",
+  "bin": {
+    "gitu": "bin/gitu.cjs"
+  },
+  "files": [
+    "bin",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

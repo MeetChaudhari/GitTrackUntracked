@@ -1,0 +1,13 @@
+{
+  "name": "gittrackuntracked-monorepo",
+  "private": true,
+  "version": "0.1.0-experimental.0",
+  "description": "Experimental ecosystem packages for GitTrackUntracked",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test:go": "go test ./...",
+    "check:go": "go vet ./..."
+  }
+}

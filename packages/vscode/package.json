@@ -1,0 +1,50 @@
+{
+  "name": "gittrackuntracked-vscode",
+  "displayName": "GitTrackUntracked (Preview)",
+  "description": "Experimental VS Code controls for the gitu private vault CLI.",
+  "version": "0.1.0-experimental.0",
+  "publisher": "REPLACE_BEFORE_PUBLISHING",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": ["SCM Providers", "Other"],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onCommand:gittrackuntracked.initializeProject",
+    "onCommand:gittrackuntracked.initializeVault",
+    "onCommand:gittrackuntracked.addActiveFile",
+    "onCommand:gittrackuntracked.status",
+    "onCommand:gittrackuntracked.sync",
+    "onCommand:gittrackuntracked.restore"
+  ],
+  "contributes": {
+    "commands": [
+      {"command": "gittrackuntracked.initializeVault", "title": "GitTrackUntracked: Initialize Personal Vault"},
+      {"command": "gittrackuntracked.initializeProject", "title": "GitTrackUntracked: Initialize This Project"},
+      {"command": "gittrackuntracked.addActiveFile", "title": "GitTrackUntracked: Add Active File"},
+      {"command": "gittrackuntracked.status", "title": "GitTrackUntracked: Status"},
+      {"command": "gittrackuntracked.sync", "title": "GitTrackUntracked: Sync"},
+      {"command": "gittrackuntracked.restore", "title": "GitTrackUntracked: Restore"}
+    ],
+    "configuration": {
+      "title": "GitTrackUntracked",
+      "properties": {
+        "gittrackuntracked.binaryPath": {
+          "type": "string",
+          "default": "gitu",
+          "description": "Path to the gitu native binary."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "package": "npm run compile && npx @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.6.0"
+  }
+}

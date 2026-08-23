@@ -1,0 +1,5 @@
+bin/
+coverage.out
+node_modules/
+packages/*/dist/
+*.vsix

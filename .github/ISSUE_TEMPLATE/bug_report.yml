@@ -1,0 +1,30 @@
+name: Bug report
+description: Report a reproducible GitTrackUntrack problem
+title: "bug: "
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include private documents, vault URLs with credentials, tokens, or client data."
+  - type: input
+    id: version
+    attributes: {label: gitu version, placeholder: "0.1.0-experimental"}
+    validations: {required: true}
+  - type: input
+    id: environment
+    attributes: {label: OS and Git version, placeholder: "macOS 15, Git 2.47"}
+    validations: {required: true}
+  - type: dropdown
+    id: storage
+    attributes:
+      label: Storage mode
+      options: [shared, branch-scoped, unknown]
+    validations: {required: true}
+  - type: textarea
+    id: reproduction
+    attributes: {label: Minimal reproduction and sanitized output}
+    validations: {required: true}
+  - type: textarea
+    id: expected
+    attributes: {label: Expected behavior}
+    validations: {required: true}

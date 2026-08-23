@@ -1,0 +1,15 @@
+{
+  "name": "@gittrackuntracked/sdk",
+  "version": "0.1.0-experimental.0",
+  "description": "Experimental JavaScript API around the GitTrackUntracked CLI",
+  "license": "MIT",
+  "type": "module",
+  "exports": "./src/index.js",
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}
