@@ -1,4 +1,5 @@
 bin/
+.DS_Store
 !packages/cli-wrapper/bin/
 !packages/cli-wrapper/bin/gitu.cjs
 coverage.out
