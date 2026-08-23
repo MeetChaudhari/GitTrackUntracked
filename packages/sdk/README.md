@@ -1,10 +1,10 @@
-# `@gittrackuntracked/sdk` (preview)
+# `@meetchaudhari/gittrackuntracked-sdk` (preview)
 
 The SDK is a thin Promise-based wrapper around a separately installed `gitu`
 binary. It does not bypass the CLI's safeguards or manage credentials.
 
 ```js
-import { GituClient } from '@gittrackuntracked/sdk';
+import { GituClient } from '@meetchaudhari/gittrackuntracked-sdk';
 
 const gitu = new GituClient({ cwd: '/path/to/project' });
 await gitu.status();

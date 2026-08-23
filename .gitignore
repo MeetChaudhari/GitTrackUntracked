@@ -4,5 +4,6 @@ bin/
 coverage.out
 node_modules/
 packages/*/dist/
+packages/cli-wrapper/native/
 *.vsix
 dist/

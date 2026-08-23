@@ -11,7 +11,7 @@ Palette:
 - Restore
 
 It calls the installed native `gitu` binary and shows command output in the
-**GitTrackUntracked** output channel. Install `@gittrackuntracked/cli` or build
+**GitTrackUntracked** output channel. Install `@meetchaudhari/gittrackuntracked` or build
 the Go CLI first, then set `gittrackuntracked.binaryPath` if `gitu` is not on
 `PATH`.
 

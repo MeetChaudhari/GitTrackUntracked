@@ -2,7 +2,7 @@
   "name": "gittrackuntracked-vscode",
   "displayName": "GitTrackUntracked (Preview)",
   "description": "Experimental VS Code controls for the gitu private vault CLI.",
-  "version": "0.1.0-experimental.1",
+  "version": "0.1.0-experimental.2",
   "publisher": "MeetChaudhari",
   "license": "MIT",
   "engines": {
