@@ -1,5 +1,40 @@
 # GitTrackUntracked (`gitu`)
 
+> Track and sync selected untracked local project files into your own private Git
+> vault without touching the original repo.
+
+VS Code users can use the preview extension:
+[GitTrackUntracked (Preview)](https://marketplace.visualstudio.com/items?itemName=MeetChaudhari.gittrackuntracked-vscode).
+
+## The short version
+
+Ever kept local notes, draft docs, TODOs, architecture decisions, scratch specs,
+or research files beside a project because they were useful to you, but not meant
+for a client/company repository?
+
+GitTrackUntracked gives those explicitly selected, non-secret local files their
+own private Git-backed vault, so your personal project context can follow you
+across machines while the original repo stays clean.
+
+## Why not just Git?
+
+Git already has partial answers for parts of this workflow, but none of them are
+quite the same thing:
+
+| Existing option | Why it is not the same |
+| --- | --- |
+| `.git/info/exclude` | Hides files from local `git status`, but does not back them up or sync them to another machine. |
+| Global gitignore | Useful for personal ignore rules, but not project-specific history or restore. |
+| `git stash -u` | Good for temporary work, awkward as a long-term personal archive, and easy to lose in day-to-day repo work. |
+| A local/private branch | Still mixes personal context with the project repository's branches and history, with a higher chance of accidental pushes or confusion. |
+| An orphan branch | Possible, but heavy for this simple workflow and still lives inside the project repo. |
+| A separate private repo | Works, but usually becomes manual copying and one-off structure per project. `gitu` turns that into one reusable private vault for many projects. |
+| `assume-unchanged` / `skip-worktree` | Only applies to files already tracked by the host repo, not deliberately untracked personal files. |
+
+The goal is not to replace Git. The goal is to make one small personal workflow
+less fragile: explicitly selected local files stay out of the main repository,
+but still get private history, sync, and restore.
+
 ## Why this exists
 
 Have you ever made a useful local file for a project—perhaps
@@ -55,7 +90,7 @@ The company/client repository is not changed. Its only `gitu` state is held insi
 | Branch-scoped vault files | Supported, experimental | Enable per checkout with `gitu branch enable`. |
 | Branch rename migration | Supported, manual | Run `gitu branch rename --from OLD --to NEW` after a Git rename. |
 | Project/repository rename migration | Supported, manual | Run `gitu project rename --to NEW-ID`; see the rename guide. |
-| VS Code extension | Preview | Command-palette integration; availability depends on Marketplace verification. |
+| VS Code extension | Preview | Activity Bar dashboard and command-palette integration: [Marketplace link](https://marketplace.visualstudio.com/items?itemName=MeetChaudhari.gittrackuntracked-vscode). |
 | npm CLI wrapper / JavaScript SDK | Experimental prerelease | Install the CLI with the `experimental` npm tag. |
 | Conflict resolution / concurrent device edits | Not yet supported | Pull and resolve vault Git conflicts manually before retrying. |
 | Encryption, access management, secret storage | Not supported | Use a secret manager. |
